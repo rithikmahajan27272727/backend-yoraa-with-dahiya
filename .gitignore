@@ -1,0 +1,50 @@
+# Node modules
+node_modules/
+
+# Build outputs
+dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Optional npm cache directory
+.npm/
+
+# Debug
+.vscode/
+.idea/
+
+# React Native
+android/.gradle/
+android/app/build/
+ios/Pods/
+ios/build/
+*.xcworkspace
+*.xcodeproj
+*.pbxproj
+
+# Testing
+coverage/
+
+# Firebase cache
+.firebase/
+
+# Misc
+*.tgz
+*.lock
+
+# Firebase service account
+serviceAccountKey.json
