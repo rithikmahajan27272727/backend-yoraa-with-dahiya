@@ -1,0 +1,861 @@
+{
+  "info": {
+    "name": "Yoraa Clothing Shop - Public Endpoints",
+    "description": "Collection of all public endpoints that don't require authentication",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Signup",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\",\n  \"phone\": \"+1234567890\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/signup",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "signup"]
+            }
+          }
+        },
+        {
+          "name": "Verify OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+1234567890\",\n  \"otp\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/verifyOtp",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "verifyOtp"]
+            }
+          }
+        },
+        {
+          "name": "Verify Firebase OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+1234567890\",\n  \"otp\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/verifyFirebaseOtp",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "verifyFirebaseOtp"]
+            }
+          }
+        },
+        {
+          "name": "Generate OTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"+1234567890\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/generate-otp",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "generate-otp"]
+            }
+          }
+        },
+        {
+          "name": "Firebase Signup",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firebaseToken\": \"firebase_token_here\",\n  \"name\": \"John Doe\",\n  \"email\": \"user@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/signup/firebase",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "signup", "firebase"]
+            }
+          }
+        },
+        {
+          "name": "Firebase Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firebaseToken\": \"firebase_token_here\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login/firebase",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "login", "firebase"]
+            }
+          }
+        },
+        {
+          "name": "Send Verification Email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/sendVerificationEmail",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "sendVerificationEmail"]
+            }
+          }
+        },
+        {
+          "name": "Verify Email",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"token\": \"verification_token\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/verifyEmail",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "verifyEmail"]
+            }
+          }
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"newPassword\": \"newPassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/resetPassword",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "resetPassword"]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/logout",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "logout"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Update User by ID",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Name\",\n  \"email\": \"updated@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/user/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "user", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "user_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "category_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subcategories",
+      "item": [
+        {
+          "name": "Get All Subcategories",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/subcategories/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subcategories", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Subcategories by Category",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/subcategories/category/:categoryId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subcategories", "category", ":categoryId"],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "category_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Subcategory by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/subcategories/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subcategories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "subcategory_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Items",
+      "item": [
+        {
+          "name": "Get All Items",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/items/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", ""]
+            }
+          }
+        },
+        {
+          "name": "Filter Items",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"categoryId\": \"category_id\",\n  \"subCategoryId\": \"subcategory_id\",\n  \"minPrice\": 100,\n  \"maxPrice\": 1000\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/items/filter",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", "filter"]
+            }
+          }
+        },
+        {
+          "name": "Get Item by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/items/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Latest Items by Subcategory",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/items/latest-items/:subCategoryId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", "latest-items", ":subCategoryId"],
+              "variable": [
+                {
+                  "key": "subCategoryId",
+                  "value": "subcategory_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Items by Subcategory",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/items/subcategory/:subCategoryId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", "subcategory", ":subCategoryId"],
+              "variable": [
+                {
+                  "key": "subCategoryId",
+                  "value": "subcategory_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Item Details",
+      "item": [
+        {
+          "name": "Get Zero Stock Items",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/itemDetails/zero-stock",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "itemDetails", "zero-stock"]
+            }
+          }
+        },
+        {
+          "name": "Get Out of Stock Count",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/itemDetails/out-of-stock/count",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "itemDetails", "out-of-stock", "count"]
+            }
+          }
+        },
+        {
+          "name": "Create Item Details",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "videos",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "sizeChartInch",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "sizeChartCm",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/itemDetails/:itemId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "itemDetails", ":itemId"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Item Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/itemDetails/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "itemDetails", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Item Details by Item ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/itemDetails/:itemId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "itemDetails", ":itemId"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payment",
+      "item": [
+        {
+          "name": "Verify Payment",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"razorpay_order_id\": \"order_id\",\n  \"razorpay_payment_id\": \"payment_id\",\n  \"razorpay_signature\": \"signature\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/razorpay/verify-payment",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "razorpay", "verify-payment"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Cancel Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reason\": \"Customer request\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/cancel/:order_id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "cancel", ":order_id"],
+              "variable": [
+                {
+                  "key": "order_id",
+                  "value": "order_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Shiprocket Auth",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"shiprocket_email\",\n  \"password\": \"shiprocket_password\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/shiprocket/auth",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "shiprocket", "auth"]
+            }
+          }
+        },
+        {
+          "name": "Track Shipment",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/shiprocket/track/:awbCode",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "shiprocket", "track", ":awbCode"],
+              "variable": [
+                {
+                  "key": "awbCode",
+                  "value": "awb_code_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Privacy Policy",
+      "item": [
+        {
+          "name": "Create Privacy Policy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Data Collection\",\n  \"content\": \"We collect information when you...\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/privacyPolicy/post",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "privacyPolicy", "post"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Filters",
+      "item": [
+        {
+          "name": "Create Filter",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Size\",\n  \"type\": \"select\",\n  \"options\": [\"S\", \"M\", \"L\", \"XL\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/filters/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "filters", ""]
+            }
+          }
+        },
+        {
+          "name": "Get All Filters",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/filters/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "filters", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Filter by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/filters/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "filters", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "filter_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Filter",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Size\",\n  \"options\": [\"XS\", \"S\", \"M\", \"L\", \"XL\", \"XXL\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/filters/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "filters", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "filter_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Filter",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/filters/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "filters", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "filter_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "item": [
+        {
+          "name": "Get Reviews (User)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/user/:itemId/reviews",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "user", ":itemId", "reviews"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Average Rating (User)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/user/:itemId/average-rating",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "user", ":itemId", "average-rating"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Reviews (Public)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/public/:itemId/reviews",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "public", ":itemId", "reviews"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Average Rating (Public)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/public/:itemId/average-rating",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "public", ":itemId", "average-rating"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Promo Codes",
+      "item": [
+        {
+          "name": "Validate Promo Code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"SAVE20\",\n  \"orderTotal\": 1000\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/promoCode/promo-codes/validate",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "promoCode", "promo-codes", "validate"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

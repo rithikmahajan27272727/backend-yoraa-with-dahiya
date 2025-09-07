@@ -1,0 +1,1321 @@
+{
+  "info": {
+    "name": "Yoraa Clothing Shop - Authenticated Endpoints",
+    "description": "Collection of all endpoints that require authentication (User & Admin)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "authToken",
+      "value": "your_jwt_token_here",
+      "type": "string"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{authToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Authentication (Protected)",
+      "item": [
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/deleteUser",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "deleteUser"]
+            }
+          }
+        },
+        {
+          "name": "Get Total Users Count",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/totalUsersCount",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "totalUsersCount"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users (Protected)",
+      "item": [
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/user/getUser",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "user", "getUser"]
+            }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/user/getAlluser",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "user", "getAlluser"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Categories (Admin Only)",
+      "item": [
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Men's Clothing",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Clothing for men",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Total Categories Count",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/totalCountCategories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories", "totalCountCategories"]
+            }
+          }
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Updated Category Name",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "category_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/categories/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "categories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "category_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subcategories (Admin Only)",
+      "item": [
+        {
+          "name": "Create Subcategory",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "T-Shirts",
+                  "type": "text"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "category_id_here",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Casual t-shirts",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/subcategories/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subcategories", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Total Subcategories",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/subcategories/totalSubcategories",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subcategories", "totalSubcategories"]
+            }
+          }
+        },
+        {
+          "name": "Update Subcategory",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Updated Subcategory",
+                  "type": "text"
+                },
+                {
+                  "key": "categoryId",
+                  "value": "category_id_here",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/subcategories/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subcategories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "subcategory_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Subcategory",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/subcategories/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "subcategories", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "subcategory_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Items (Admin Only)",
+      "item": [
+        {
+          "name": "Download Items",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/items/download",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", "download"]
+            }
+          }
+        },
+        {
+          "name": "Create Item",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Cotton T-Shirt",
+                  "type": "text"
+                },
+                {
+                  "key": "subCategoryId",
+                  "value": "subcategory_id_here",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "299",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Comfortable cotton t-shirt",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/items/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Total Item Count",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/items/totalItemCount",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", "totalItemCount"]
+            }
+          }
+        },
+        {
+          "name": "Update Item",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Updated Item Name",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "399",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/items/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Item",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/items/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "items", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Item Details (Admin Only)",
+      "item": [
+        {
+          "name": "Download Item Details",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/itemDetails/download",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "itemDetails", "download"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Wishlist",
+      "item": [
+        {
+          "name": "Add to Wishlist",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": \"item_id_here\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/wishlist/add",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "wishlist", "add"]
+            }
+          }
+        },
+        {
+          "name": "Get Wishlist",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/wishlist/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "wishlist", ""]
+            }
+          }
+        },
+        {
+          "name": "Remove from Wishlist",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/wishlist/remove/:itemId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "wishlist", "remove", ":itemId"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Clear Wishlist",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/wishlist/clear",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "wishlist", "clear"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cart",
+      "item": [
+        {
+          "name": "Add to Cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": \"item_id_here\",\n  \"quantity\": 2,\n  \"size\": \"M\",\n  \"color\": \"Blue\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cart", ""]
+            }
+          }
+        },
+        {
+          "name": "Get User Cart",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/user",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cart", "user"]
+            }
+          }
+        },
+        {
+          "name": "Update Cart Item",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 3\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cart", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "cart_item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Cart Item",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cart", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "cart_item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Clear Cart",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/user/delete",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cart", "user", "delete"]
+            }
+          }
+        },
+        {
+          "name": "Delete Cart Item by Item ID",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/cart/item/:itemId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "cart", "item", ":itemId"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Address",
+      "item": [
+        {
+          "name": "Create Address",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"phone\": \"+1234567890\",\n  \"address\": \"123 Main St\",\n  \"city\": \"New York\",\n  \"state\": \"NY\",\n  \"zipCode\": \"10001\",\n  \"country\": \"USA\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/address/createAddress",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "address", "createAddress"]
+            }
+          }
+        },
+        {
+          "name": "Get User Addresses",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/address/user",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "address", "user"]
+            }
+          }
+        },
+        {
+          "name": "Update Address",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Name\",\n  \"address\": \"456 Updated St\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/address/updateById/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "address", "updateById", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "address_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Address",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/address/deleteById/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "address", "deleteById", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "address_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payment",
+      "item": [
+        {
+          "name": "Create Payment Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 1000,\n  \"currency\": \"INR\",\n  \"receipt\": \"receipt_001\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/razorpay/create-order",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "razorpay", "create-order"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Profile",
+      "item": [
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/userProfile/getProfile",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "userProfile", "getProfile"]
+            }
+          }
+        },
+        {
+          "name": "Create User Profile",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "firstName",
+                  "value": "John",
+                  "type": "text"
+                },
+                {
+                  "key": "lastName",
+                  "value": "Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "dateOfBirth",
+                  "value": "1990-01-01",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/userProfile/postProfile",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "userProfile", "postProfile"]
+            }
+          }
+        },
+        {
+          "name": "Update User Profile",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "firstName",
+                  "value": "Updated John",
+                  "type": "text"
+                },
+                {
+                  "key": "lastName",
+                  "value": "Updated Doe",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/userProfile/updateProfile",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "userProfile", "updateProfile"]
+            }
+          }
+        },
+        {
+          "name": "Get Profile by User ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/userProfile/getProfileByUserId/:userId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "userProfile", "getProfileByUserId", ":userId"],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "user_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Get User Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/getAllByUser",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "getAllByUser"]
+            }
+          }
+        },
+        {
+          "name": "Get All Orders (Admin)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/getAllOrder",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "getAllOrder"]
+            }
+          }
+        },
+        {
+          "name": "Get Delivered Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/delivered",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "delivered"]
+            }
+          }
+        },
+        {
+          "name": "Get Exchange Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/exchange-orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "exchange-orders"]
+            }
+          }
+        },
+        {
+          "name": "Get Return Orders",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/return-orders",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "return-orders"]
+            }
+          }
+        },
+        {
+          "name": "Get Order Status Counts",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/status-counts",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "status-counts"]
+            }
+          }
+        },
+        {
+          "name": "Create Exchange Order",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "orderId",
+                  "value": "order_id_here",
+                  "type": "text"
+                },
+                {
+                  "key": "reason",
+                  "value": "Size issue",
+                  "type": "text"
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/exchange",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "exchange"]
+            }
+          }
+        },
+        {
+          "name": "Create Return Order",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "orderId",
+                  "value": "order_id_here",
+                  "type": "text"
+                },
+                {
+                  "key": "reason",
+                  "value": "Defective product",
+                  "type": "text"
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/orders/return",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "orders", "return"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Privacy Policy",
+      "item": [
+        {
+          "name": "Get Privacy Policy",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/privacyPolicy/get",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "privacyPolicy", "get"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notifications",
+      "item": [
+        {
+          "name": "Upload Notification Image",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/upload-notification-image",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "upload-notification-image"]
+            }
+          }
+        },
+        {
+          "name": "Send Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"New Offer!\",\n  \"body\": \"Get 50% off on all items\",\n  \"imageUrl\": \"https://example.com/image.jpg\",\n  \"deepLink\": \"yoraa://offers\",\n  \"targetPlatform\": \"both\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/send-notification",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "send-notification"]
+            }
+          }
+        },
+        {
+          "name": "Get Notifications",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/notifications",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "notifications"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bulk Upload (Admin Only)",
+      "item": [
+        {
+          "name": "Bulk Upload Items",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "jsonFile",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "media",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/bulkUpload/bulk-upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "bulkUpload", "bulk-upload"]
+            }
+          }
+        },
+        {
+          "name": "Bulk Upload Item Details",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "jsonFile",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "media",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/bulkUpload/item-details/bulk-upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "bulkUpload", "item-details", "bulk-upload"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reviews (Authenticated)",
+      "item": [
+        {
+          "name": "Create Review",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 5,\n  \"comment\": \"Great product!\",\n  \"title\": \"Excellent quality\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/user/:itemId/reviews",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "user", ":itemId", "reviews"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Review",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rating\": 4,\n  \"comment\": \"Updated review\",\n  \"title\": \"Good product\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/user/:itemId/reviews/:reviewId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "user", ":itemId", "reviews", ":reviewId"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                },
+                {
+                  "key": "reviewId",
+                  "value": "review_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Review",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/user/:itemId/reviews/:reviewId",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "user", ":itemId", "reviews", ":reviewId"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                },
+                {
+                  "key": "reviewId",
+                  "value": "review_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reviews (Admin Only)",
+      "item": [
+        {
+          "name": "Get Reviews (Admin)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/admin/:itemId/reviews",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "admin", ":itemId", "reviews"],
+              "variable": [
+                {
+                  "key": "itemId",
+                  "value": "item_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Fake Review (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"user_id_here\",\n  \"rating\": 5,\n  \"comment\": \"Admin created review\",\n  \"title\": \"Great item\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/admin/:itemDetailsId/reviews",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "admin", ":itemDetailsId", "reviews"],
+              "variable": [
+                {
+                  "key": "itemDetailsId",
+                  "value": "item_details_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Review Settings (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"allowReviews\": true,\n  \"moderateReviews\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/reviews/admin/:itemDetailsId/review-settings",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "reviews", "admin", ":itemDetailsId", "review-settings"],
+              "variable": [
+                {
+                  "key": "itemDetailsId",
+                  "value": "item_details_id_here"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Promo Codes (Admin Only)",
+      "item": [
+        {
+          "name": "Create Promo Code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"SAVE20\",\n  \"discount\": 20,\n  \"type\": \"percentage\",\n  \"minOrderValue\": 500,\n  \"maxDiscount\": 100,\n  \"expiryDate\": \"2025-12-31\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/promoCode/admin/promo-codes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "promoCode", "admin", "promo-codes"]
+            }
+          }
+        },
+        {
+          "name": "Update Promo Code",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"discount\": 25,\n  \"maxDiscount\": 150\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/promoCode/admin/promo-codes/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "promoCode", "admin", "promo-codes", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "promo_code_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Promo Code",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/promoCode/admin/promo-codes/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "promoCode", "admin", "promo-codes", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "promo_code_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Promo Codes",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/promoCode/admin/promo-codes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "promoCode", "admin", "promo-codes"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

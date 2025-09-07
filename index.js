@@ -29,6 +29,9 @@ const PromoCodeRoutes = require("./src/routes/PromoCodeRoutes");
 // Initialize the Express application
 const app = express();
 
+const morgan = require("morgan");
+app.use(morgan("dev"));
+
 // Apply middleware
 app.use(cors()); // Enable CORS for all routes to allow cross-origin requests
 app.use(express.json()); // Parse incoming JSON requests
@@ -50,7 +53,7 @@ app.use("/api/address", addressRoutes); // User address management routes
 app.use("/api/razorpay", razorpayRoutes); // Payment processing routes using Razorpay
 app.use("/api/userProfile", userProfileRoutes); // User profile management routes
 app.use("/api/orders", orderRoutes); // Order management routes
-app.use("/api privacyPolicy", privacyPolicyRoutes); // Privacy policy routes
+app.use("/api/privacyPolicy", privacyPolicyRoutes); // Privacy policy routes
 app.use("/api", notificationRoutes); // Notification-related routes (Note: Consider specifying a more specific path like /api/notifications)
 app.use("/api/filters", filterRoutes); // Routes for filtering items (e.g., by category, price)
 app.use("/api/bulkUpload",bulkUploadRoutes );

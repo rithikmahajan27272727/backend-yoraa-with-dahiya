@@ -7,6 +7,7 @@ const {
   deleteUser,
   sendVerificationEmail,
   verifyEmail,
+  verifyOtp,
   verifyFirebaseOtp,
   signupFirebase,
   loginFirebase,
@@ -30,6 +31,10 @@ authRouter
   // POST /api/auth/signup
   // Handles user signup (creates a new user account)
   .post("/signup", signUpController)
+
+  // POST /api/auth/verifyOtp
+  // Verifies regular OTP for account verification
+  .post("/verifyOtp", verifyOtp)
 
   // POST /api/auth/verifyFirebaseOtp
   // Verifies an OTP sent via Firebase (e.g., for phone-based authentication)
